@@ -1,13 +1,28 @@
+import { useEffect, useState } from 'react'
 import { MovieList } from '../../components/MovieList/MovieList'
 import { getTrendingMovie } from '../../components/Service/fetchData'
 
 
 export const Home = () => {
 
-const data = getTrendingMovie()
+const [movies, setMovies] = useState([])
 
-console.log(data)
+useEffect(() => {
+    const fetchMovies = async () => {
+        try {
+            const movies = await getTrendingMovie()
+            console.log(movies.results)
+            setMovies(movies.results)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    fetchMovies()
+}, [])
+
+
+
     return(
-        <MovieList/>
+        <MovieList movies={movies}/>
     )
 }

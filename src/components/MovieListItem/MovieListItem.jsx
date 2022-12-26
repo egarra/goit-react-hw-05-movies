@@ -1,9 +1,7 @@
-export const MovieListItem = ({movie}) => {
+export const MovieListItem = ({name=null, title=null}) => {
     return (
         <li>
-            <h2>Title</h2>
-            <img src="" alt=""/>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat aperiam quidem eius doloremque doloribus. Architecto, delectus, numquam aliquam sapiente veritatis molestiae omnis placeat minima eaque ut eos tempora quod error.</p>
+            <h2>{name || title}</h2>
         </li>
     )
 }

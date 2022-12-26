@@ -10,14 +10,15 @@ export const App = () => {
       <TabList>
         <Tab>Home</Tab>
         <Tab>Movies</Tab>
-
+        </TabList>
+        
         <TabPanel>
           <Home/>
         </TabPanel>
-{        <TabPanel>
+        <TabPanel>
           <Movies />
-        </TabPanel>}
-      </TabList>
+        </TabPanel>
+      
     </Tabs>
   );
 };
