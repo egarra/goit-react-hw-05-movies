@@ -1,10 +1,19 @@
-import { MovieListItem } from '../MovieListItem/MovieListItem'
+import { useLocation } from 'react-router-dom';
+import { MoviesList, Title, StyledLink } from './MovieList.syled';
 
-export const MovieList = ({movies}) => {
+export const MovieList = ({movies, link}) => {
+  const location = useLocation()
+
     return (
-        <ul>
-            <h2>Trending today</h2>
-            {movies.map(({name, title, id}) => <MovieListItem key={id} name={name} title={title}/>)}
-        </ul>
+        <MoviesList>
+        <Title>Trending today</Title>
+        {movies.map(({ name, title, id }) => {
+          return (
+            <StyledLink key={id} to={`${link + id}`} state={{ from: location }}>
+              <h2>{name || title}</h2>
+            </StyledLink>
+          );
+        })}
+      </MoviesList>
     )
 }
