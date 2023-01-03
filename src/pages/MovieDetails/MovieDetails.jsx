@@ -15,7 +15,7 @@ import {
   ErrorDiv
 } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState({});
   const [error, setError] = useState('');
   const [loader, setLoader] = useState(false);
@@ -54,7 +54,7 @@ export const MovieDetails = () => {
 
   return (
     <>
-      {loader && <Loader />}
+      {/* {loader && <Loader />} */}
       {error !== '' ? (
         <ErrorDiv>{error}</ErrorDiv>
       ) : (
@@ -87,3 +87,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

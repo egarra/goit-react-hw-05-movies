@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { CastList } from "components/CastList/CastList";
 import { Loader } from 'components/Loader/Loader';
 
-export const Cast = () => {
+const Cast = () => {
     const [ cast, setCast ] = useState([]);
     const [loader, setLoader] = useState(false);
     const { id } = useParams();
@@ -34,3 +34,5 @@ export const Cast = () => {
         </>
     )
 }
+
+export default Cast;

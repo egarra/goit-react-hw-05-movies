@@ -6,7 +6,7 @@ import { Loader } from 'components/Loader/Loader';
 import { MovieList } from 'components/MovieList/MovieList';
 
 
-export const Movies = () => {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const productName = searchParams.get('name') ?? '';
 
@@ -67,3 +67,5 @@ const onHandleSubmit = e => {
     </>
   );
 };
+
+export default Movies;

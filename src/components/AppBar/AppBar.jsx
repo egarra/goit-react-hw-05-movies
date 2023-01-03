@@ -1,13 +1,12 @@
 import { Header, Nav, NavItem } from './AppBar.styled';
 
-export const AppBar = () => {
+const AppBar = () => {
   const navItems = [
     { href: '/', text: 'home' },
     { href: 'movies', text: 'movies' },
   ];
 
   return (
-    <>
       <Header>
         <Nav>
           {navItems.map(({ href, text }) => (
@@ -17,6 +16,7 @@ export const AppBar = () => {
           ))}
         </Nav>
       </Header>
-    </>
   );
 };
+
+export default AppBar;

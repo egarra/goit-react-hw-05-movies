@@ -4,7 +4,8 @@ import { getMovieReview } from '../../components/Service/fetchData';
 import { useEffect, useState } from "react";
 
 import { ReviewsList } from "components/ReviewsList/ReviewsList";
-export const Reviews = () => {
+
+const Reviews = () => {
     const [reviews, setReviews] = useState([])
     const { id } = useParams();
 
@@ -29,3 +30,5 @@ export const Reviews = () => {
         </>
     )
 }
+
+export default Reviews;
