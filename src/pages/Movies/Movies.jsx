@@ -11,10 +11,10 @@ const Movies = () => {
 
   const [movies, setMovies] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [inputValue, setInputValue] = useState(movieName)
 
   const updateQueryString = name => {
-    const nextParams = name !== '' ? { name } : {};
-    setSearchParams(nextParams);
+    setInputValue(name);
   };
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const Movies = () => {
       >
         <input
           onChange={e => updateQueryString(e.target.value)}
-          value={movieName}
+          value={inputValue}
           type="text"
           name="query"
           autoComplete="off"

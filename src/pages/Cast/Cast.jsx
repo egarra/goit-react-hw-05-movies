@@ -24,7 +24,6 @@ const Cast = () => {
             }
         }
         fetchCast()
-        return () => setCast([])
     }, [id])
     
     return (

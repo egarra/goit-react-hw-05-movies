@@ -20,8 +20,6 @@ const Reviews = () => {
         }
     
         fetchReviews()
-
-        return () => setReviews([])
     }, [id])
 
     return (
