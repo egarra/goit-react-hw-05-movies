@@ -46,15 +46,11 @@ const MovieDetails = () => {
       }
     };
     fetchMovie();
-    return () => {
-      setMovieDetails({});
-      setError('');
-    };
   }, [id]);
 
   return (
     <>
-      {/* {loader && <Loader />} */}
+      {loader && <Loader />}
       {error !== '' ? (
         <ErrorDiv>{error}</ErrorDiv>
       ) : (

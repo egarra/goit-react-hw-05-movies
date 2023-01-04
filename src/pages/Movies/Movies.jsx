@@ -1,17 +1,15 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { getMovieByQuery } from 'components/Service/fetchData';
 import { Loader } from 'components/Loader/Loader';
 import { MovieList } from 'components/MovieList/MovieList';
 
-
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const productName = searchParams.get('name') ?? '';
+  const movieName = searchParams.get('name') ?? '';
 
   const [movies, setMovies] = useState([]);
-  const [ query, setQuery] = useState(productName)
   const [loader, setLoader] = useState(false);
 
   const updateQueryString = name => {
@@ -19,41 +17,41 @@ const Movies = () => {
     setSearchParams(nextParams);
   };
 
-
-useEffect(() => {
-    if ( query === '') {
-        return
+  useEffect(() => {
+    if (movieName === '') {
+      return;
     }
 
-        const fetchData = async () => {
-            setLoader(true)
-            try {
-              const data = await getMovieByQuery(query);
-              setMovies([...data]);
-            } catch (error) {
-              console.log(error);
-            } finally {
-                setLoader(false)
-            }
-          };
-          fetchData();
-},[query])
+    const fetchData = async () => {
+      setLoader(true);
+      try {
+        const data = await getMovieByQuery(movieName);
+        setMovies([...data]);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoader(false);
+      }
+    };
+    fetchData();
+  }, [movieName]);
 
-const onHandleSubmit = e => {
-    setQuery(productName)
-}
+  const onHandleSubmit = name => {
+    const nextParams = name !== '' ? { name } : {};
+    setSearchParams(nextParams);
+  };
 
   return (
     <>
       <form
         onSubmit={e => {
           e.preventDefault();
-          onHandleSubmit(e);
+          onHandleSubmit(e.target.elements.query.value);
         }}
       >
         <input
-          onChange={(e) => updateQueryString(e.target.value)}
-          value={productName}
+          onChange={e => updateQueryString(e.target.value)}
+          value={movieName}
           type="text"
           name="query"
           autoComplete="off"

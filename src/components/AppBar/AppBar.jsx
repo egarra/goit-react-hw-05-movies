@@ -1,4 +1,5 @@
 import { Header, Nav, NavItem } from './AppBar.styled';
+import { Outlet } from 'react-router-dom';
 
 const AppBar = () => {
   const navItems = [
@@ -7,7 +8,8 @@ const AppBar = () => {
   ];
 
   return (
-      <Header>
+      <>
+        <Header>
         <Nav>
           {navItems.map(({ href, text }) => (
             <NavItem to={href} key={href}>
@@ -16,6 +18,8 @@ const AppBar = () => {
           ))}
         </Nav>
       </Header>
+      <Outlet/>
+      </>
   );
 };
 

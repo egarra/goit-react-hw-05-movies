@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getTrendingMovie } from '../../components/Service/fetchData';
 import { MovieList } from 'components/MovieList/MovieList';
 
-const Home = () => {
+export default function Home () {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -21,5 +21,3 @@ const Home = () => {
       <MovieList movies={movies} link={`movies/`}/>
   );
 };
-
-export default Home;
